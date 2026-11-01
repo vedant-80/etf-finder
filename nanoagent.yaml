@@ -1,0 +1,44 @@
+_ > nanoagent.plugin.v0001.ManifestConfig:
+id: etf-finder
+name: ETF Finder
+version: 0.1.0
+status: ready
+spec: nanoagent.plugin/v0001
+
+runtime > nanoagent.plugin.v0001.RuntimeConfig:
+  type: mcp_stdio
+  command: [uv, run, --frozen, python, -m, plugin]
+
+# The holdings are a frozen SEC N-PORT snapshot shipped in the plugin: no network.
+permissions > nanoagent.plugin.v0001.PermissionsConfig:
+  network > nanoagent.plugin.v0001.NetworkConfig:
+    hosts: []
+  filesystem > nanoagent.plugin.v0001.FilesystemConfig:
+    write: [workspace]
+
+# One entry per contract.Tool; its input and output classes are contract.TOOLS's.
+tools > dict[contract.Tool, nanoagent.plugin.v0001.ToolConfig]:
+  search_stocks:
+    description: Find the stocks a ticker or company name means, best match first (at most 5), among the stocks the ETF universe holds
+  get_etf_holders:
+    description: List the top 20 ETFs holding a stock, highest holding percentage first, with each ETF's ticker, full name and weight, and how many ETFs hold it in all
+  pin_holders:
+    description: Pin the answer key for a query, the stock it resolves to and every ETF holding it, from the same SEC snapshot
+
+# One entry per contract.Task; its input class is contract.TASKS's.
+tasks > dict[contract.Task, nanoagent.plugin.v0001.TaskConfig]:
+  find-etfs:
+    description: List up to 20 ETFs that hold a stock, named by ticker or company name, ranked by how much of each ETF the stock makes up
+    runner: agent
+    tools: [search_stocks, get_etf_holders]
+    reference: pin_holders
+    instructions: |-
+      Plan. At most three tool calls, nothing else: (1) search_stocks with the task's query exactly as given; (2) if it returned any candidates, get_etf_holders with the ticker of the FIRST candidate, whatever the others are; (3) submit. Never call a tool twice, never retry with another spelling, and keep reasoning to one short line.
+      Found. Submit query (the task's query exactly as given), found true, stock (the first candidate's ticker and name exactly as search_stocks gave them), as_of (get_etf_holders' as_of unchanged) and etfs (get_etf_holders' etfs unchanged: the same entries, in the same order, each ticker, name and weight_pct copied character for character; never re-sort, round, drop or add one).
+      Not found. If search_stocks returned no candidates, do not call get_etf_holders: submit query (as given), found false, stock null, as_of "" and etfs [].
+  lookup-stock:
+    description: Show which stocks a ticker or company name matches, best match first, before finding the ETFs that hold one
+    runner: tool
+    tools: [search_stocks]
+    reference: null
+    instructions: Call search_stocks with the query exactly as given. The first candidate is the stock find-etfs would use.

@@ -1,0 +1,310 @@
+# The curated ETF universe: large US-listed equity ETFs, one ticker per line.
+# tools_dev/build_snapshot.py maps each to its SEC registration (a fund series in
+# company_tickers_mf.json, or a unit investment trust's CIK in company_tickers.json)
+# and fails, naming it, if a ticker maps to neither or has no N-PORT report in the quarter.
+
+# Broad US market and S&P 500
+SPY | SPDR S&P 500 ETF Trust
+IVV
+VOO | Vanguard S&P 500 ETF
+VTI | Vanguard Total Stock Market ETF
+ITOT
+SCHB
+SCHX
+SPTM
+IWB
+IWV
+VV | Vanguard Large-Cap ETF
+RSP
+SCHK
+VONE | Vanguard Russell 1000 ETF
+VTHR | Vanguard Russell 3000 ETF
+ESGU
+SUSA
+DSI
+USMV
+SPLV
+QUAL
+MTUM
+VLUE
+SIZE
+DIA | SPDR Dow Jones Industrial Average ETF Trust
+MDY | SPDR S&P MidCap 400 ETF Trust
+IJH
+VO | Vanguard Mid-Cap ETF
+IWR
+SCHM
+SPMD
+IVOO | Vanguard S&P Mid-Cap 400 ETF
+IJR
+VB | Vanguard Small-Cap ETF
+IWM
+SCHA
+SPSM
+VTWO | Vanguard Russell 2000 ETF
+IWN
+IWO
+VBR | Vanguard Small-Cap Value ETF
+VBK | Vanguard Small-Cap Growth ETF
+IJS
+IJT
+VXF | Vanguard Extended Market ETF
+IWC
+IUSG
+IUSV
+IVW
+IVE
+SPYG
+SPYV
+VUG | Vanguard Growth ETF
+VTV | Vanguard Value ETF
+IWF
+IWD
+SCHG
+SCHV
+MGK | Vanguard Mega Cap Growth ETF
+MGV | Vanguard Mega Cap Value ETF
+MGC | Vanguard Mega Cap ETF
+VONG | Vanguard Russell 1000 Growth ETF
+VONV | Vanguard Russell 1000 Value ETF
+OEF
+XLG
+IWY
+IWX
+VOT | Vanguard Mid-Cap Growth ETF
+VOE | Vanguard Mid-Cap Value ETF
+IWP
+IWS
+IJK
+IJJ
+MDYG
+MDYV
+
+# Nasdaq and growth
+QQQ
+QQQM
+ONEQ
+QQEW
+QQQJ
+
+# Dividend and income
+SCHD
+VIG | Vanguard Dividend Appreciation ETF
+VYM | Vanguard High Dividend Yield ETF
+DVY
+SDY
+NOBL
+DGRO
+HDV
+SPYD
+SPHD
+FDL
+DGRW | WisdomTree U.S. Quality Dividend Growth Fund
+FVD
+DHS | WisdomTree U.S. High Dividend Fund
+SPHQ
+RDVY
+DIVO
+
+# Sector: technology and communication
+XLK
+VGT | Vanguard Information Technology ETF
+IYW
+FTEC
+IGV
+SOXX
+SMH
+XSD
+PSI
+FDN
+SKYY
+CLOU
+CIBR
+BUG
+IGM
+XLC
+VOX | Vanguard Communication Services ETF
+IYZ
+FCOM
+SOCL
+
+# Sector: health care
+XLV
+VHT | Vanguard Health Care ETF
+IYH
+FHLC
+IBB
+XBI
+IHI
+IHF
+XHE
+PJP
+IHE
+
+# Sector: financials
+XLF
+VFH | Vanguard Financials ETF
+IYF
+FNCL
+KBE
+KRE
+KIE
+IAI
+IYG
+
+# Sector: consumer
+XLY
+VCR | Vanguard Consumer Discretionary ETF
+IYC
+FDIS
+XLP
+VDC | Vanguard Consumer Staples ETF
+IYK
+FSTA
+XRT
+PBJ
+ITB
+XHB
+PEJ
+
+# Sector: industrials and materials
+XLI
+VIS | Vanguard Industrials ETF
+IYJ
+FIDU
+ITA
+XAR
+PPA
+IYT
+XTN
+JETS
+XLB
+VAW | Vanguard Materials ETF
+IYM
+FMAT
+XME
+PAVE
+GRID
+
+# Sector: energy and utilities
+XLE
+VDE | Vanguard Energy ETF
+IYE
+FENY
+XOP
+OIH
+IEO
+XLU
+VPU | Vanguard Utilities ETF
+IDU
+FUTY
+ICLN
+TAN
+QCLN
+PBW
+FAN
+URA
+LIT
+
+# Sector: real estate
+XLRE
+VNQ | Vanguard Real Estate ETF
+IYR
+SCHH
+USRT
+RWR
+REZ
+
+# Thematic and active
+ARKK
+ARKW
+ARKG
+ARKQ
+ARKF
+BOTZ
+ROBO
+AIQ
+DRIV
+FINX
+ESPO
+HERO
+BLOK
+MOAT
+SPGP
+COWZ
+CALF
+JEPI
+JEPQ
+XYLD
+QYLD
+RYLD
+DGRS | WisdomTree U.S. SmallCap Quality Dividend Growth Fund
+PKW
+SPMO
+SPHB
+QQQE | Direxion NASDAQ-100 Equal Weighted Index Shares
+FPX
+IPO
+GURU
+BUZZ
+KOMP
+VEGN
+CGGR
+CGDV
+CGUS
+CGCP
+AVUS
+AVUV
+DFAC
+DFAU
+DFAS
+DFUS
+DFLV
+DUHP
+JQUA
+JMOM
+JVAL
+FQAL
+FVAL
+FMDE
+FELC
+FBCG
+DYNF
+TCHP
+BBUS
+VFVA
+VFMF
+VFQY
+VFMO
+
+# Equal weight and factor variants
+RSPT
+RSPH
+RSPF
+RSPN
+RSPD
+RSPS
+RSPU
+RSPR
+RSPM
+RSPC
+EUSA
+OMFL
+LRGF
+SMLF
+
+# International with large US-listed holdings (global and world funds)
+VT | Vanguard Total World Stock ETF
+ACWI
+URTH
+IOO
+KXI
+EXI
+IXN
+IXJ
+IXG
+IXC
+RXI
+MXI
+JXI
+IXP

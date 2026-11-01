@@ -1,0 +1,6 @@
+/* Styles for this plugin's renderers (renderers.js), over the kit's (kit/kit.css). They apply
+   only inside each renderer's output, in its own shadow root. */
+.etf-answer h3 { margin: 0 0 0.25rem; }
+.etf-answer .muted { margin: 0 0 0.75rem; }
+.checks { list-style: none; padding: 0; margin: 0.5rem 0 0; display: grid; gap: 0.4rem; }
+.candidates { margin: 0; padding-left: 1.25rem; display: grid; gap: 0.3rem; }

@@ -1,0 +1,12 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "See which ETFs hold a stock, and how much of each fund it makes up"
+summary: "Type a stock's ticker or company name, such as NVDA or Nvidia. The agent finds the stock and lists up to 20 ETFs that hold it, ranked by holding percentage, each with its ticker, full name and weight. The holdings come from SEC Form N-PORT filings for 280 large US-listed equity ETFs, frozen in the plugin so every answer can be checked exactly."
+highlights:
+  - "Ranked by how much of each ETF the stock makes up, highest first"
+  - "Every weight comes from official SEC N-PORT filings, with the report dates shown"
+  - "Works with a ticker or a company name: NVDA, nvda or Nvidia"
+  - "A rule-based check compares every rank, ticker, name and weight with the answer key"
+steps:
+  - "Ask which ETFs hold a stock, by ticker or company name"
+  - "The agent looks the stock up and fetches its top holders"
+  - "See the ranked ETFs with their weights, the data's dates and every check of the verdict"

@@ -1,0 +1,28 @@
+{
+  "built_at": "2026-11-01T21:28:16Z",
+  "quarter": "2026q3",
+  "inputs": {
+    "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2026q3_nport.zip": "2f5ee059234d2e28f16d0451d9fcb405aab3dad5d92cded74c8ea9ffc4b66c38",
+    "https://www.sec.gov/files/company_tickers_mf.json": "f77c00f0bb3b15f1d93bab433019c2ea441f27460737419496ab8f90bb9f6778",
+    "https://www.sec.gov/files/company_tickers.json": "3087398afcb236e5eef138bc383afe6292bb5bcc31644b8edae5222cd9305ce0"
+  },
+  "outputs": {
+    "snapshot.json.gz": "1681bc88f82380616d0d5d78c22019f0fb8a44fb14c9baebf802004a60d7886e",
+    "etf_universe.txt": "306207504166f3fe9d13a8de1bdae592045bf75d16d35a46270659d58610b25f"
+  },
+  "counts": {
+    "dropped: common stock not in USD or without a CUSIP": 14722,
+    "dropped: not common stock": 3248,
+    "CUSIPs mapped to a ticker": 5241,
+    "CUSIPs left unmapped: tied vote": 2,
+    "kept: common stock rows matched to a ticker": 89385,
+    "dropped: CUSIP with no SEC-registered ticker": 2442,
+    "etfs": 280,
+    "stocks": 3654
+  },
+  "report_dates": {
+    "2026-05-31": 57,
+    "2026-06-30": 130,
+    "2026-07-31": 93
+  }
+}
